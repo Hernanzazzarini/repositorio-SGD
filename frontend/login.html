@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link rel="stylesheet" href="css/login.css">
+</head>
+
+<body>
+    <header>
+        <nav>
+            <img src="ruta-del-logo/logo.png" alt="Logo de Tu Empresa" class="logo">
+            <ul>
+                <li><a href="../index.html">Inicio</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <form id="registroForm">
+      <!-- 
+        <img src="imagenes/logo_header-1.png" alt="olega" style="width: 200px; height: auto; display: block; margin: 0 auto;">
+        -->
+        <h1>Registro de personal</h1>
+
+        <label for="apellido">Apellido</label>
+        <input type="text" placeholder="🤵 Escriba su Apellido" name="apellido" id="apellido" autocomplete="off">
+        <div id="mensajeApellido" class="mensajeValidacion"></div>
+
+        <label for="nombre">Nombre</label>
+        <input type="text" placeholder="🤵 Escriba su Nombre" name="nombre" id="nombre" autocomplete="off">
+        <div id="mensajeNombre" class="mensajeValidacion"></div>
+
+        <label for="email">Email</label>
+        <input type="text" placeholder="📧 Escriba su Email" name="email" id="email" autocomplete="off">
+        <div id="mensajeEmail" class="mensajeValidacion"></div>
+
+        <input type="button" value="Registrarse" onclick="validarRegistro()">
+        
+        <div id="mensajeValidacion" class="mensaje" style="margin-top: 10px;"></div>
+        
+        <div id="exitoMensaje" class="exitoMensaje" style="margin-top: 10px; display: none;"></div>
+
+        
+    </form>
+
+    
+
+<footer>
+    <p>&copy; H.Z@zz Desing. Todos los derechos reservados.</p>
+
+</footer> 
+<script src="js/validacionlogin.js"></script>   
+
+</body>
+</html>

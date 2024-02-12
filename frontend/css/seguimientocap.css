@@ -1,0 +1,76 @@
+/* Estilos generales */
+body {
+    /* Fondo con degradado lineal */
+    background: linear-gradient(to right, #dae1e9, #1176c9);
+    /* Esto establece el fondo del cuerpo del HTML con un degradado de verde (#4CAF50) a azul (#2196F3) */
+    margin: 0; /* Elimina los márgenes predeterminados del cuerpo */
+    padding: 0; /* Elimina el relleno predeterminado del cuerpo */
+    height: 100vh; /* Establece la altura del cuerpo al 100% del alto de la ventana */
+    font-family: 'Arial', sans-serif; /* Cambia la fuente del texto si es necesario */
+  }
+  
+  
+  .container {
+    max-width: 1000px; /* Ajusta el ancho del contenedor principal según sea necesario */
+    margin: 0 auto;
+    padding: 20px;
+  }
+  
+  /* Estilos para el formulario */
+  form {
+    background-color: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+    padding: 30px; /* Ajusta el padding del formulario según sea necesario */
+  }
+  
+  .form-row {
+    margin-bottom: 20px;
+  }
+  
+  .btn-primary {
+    background-color: #007bff;
+    border-color: #007bff;
+  }
+  
+  /* Estilos para la tabla */
+  .table {
+    background-color: #ffffff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    width: 100%; /* Ajusta el ancho de la tabla según sea necesario */
+  }
+  
+  /* Estilos para la cabecera de la tabla */
+  .table thead th {
+    background-color: #007bff;
+    color: #ffffff;
+    border-color: #007bff;
+  }
+  
+  /* Estilos para las filas alternas de la tabla */
+  .table tbody tr:nth-child(even) {
+    background-color: #f2f2f2;
+  }
+  
+  /* Estilos para las celdas de la tabla */
+  .table tbody td {
+    border-color: #dee2e6;
+  }
+  
+  /* Estilos para el botón de agregar */
+  .btn-primary {
+    background-color: #007bff;
+    border-color: #007bff;
+  }
+  
+  .btn-primary:hover {
+    background-color: #0056b3;
+    border-color: #0056b3;
+  }
+  
+  /* Estilos para el título de la página */
+  h2 {
+    color:black;
+  }
+  

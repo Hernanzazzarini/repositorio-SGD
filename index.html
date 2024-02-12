@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>sistema de gestion de contenido</title>
+  <link rel="stylesheet" href="frontend/css/index.css">
+  <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"> <!-- Enlaza a Bootstrap -->
+  
+ 
+</head>
+<body>
+  
+  
+    <header class="hero">
+      <nav class="navbar navbar-expand-lg bg-body-tertiary">
+        <div class="container-fluid">
+          <a class="navbar-brand" href="#">SGC</a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarScroll" aria-controls="navbarScroll" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarScroll">
+            <ul class="navbar-nav me-auto my-2 my-lg-0 navbar-nav-scroll" style="--bs-scroll-height: 100px;">
+              <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="#">INICIO</a>
+              </li>
+              
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                  MENU
+                </a>
+                <ul class="dropdown-menu">
+                  <li><a class="dropdown-item" href="frontend/cronograma.html">Cronograma de tareas</a></li>
+                  <li><a class="dropdown-item" href="frontend/seguimientocap.html">Seguimiento de capacitaciones</a></li>
+                  <li><hr class="dropdown-divider"></li>
+                  <li><a class="dropdown-item" href="frontend/cargatraza.html">Carga Trazabilidad produccion</a></li>
+                  <li><a class="dropdown-item" href="#">Carga Trazabilidad logistica</a></li>
+                  <li><a class="dropdown-item" href="#">Trazabilidad general</a></li>
+                </ul>
+              </li>
+              
+            </ul>
+            <form class="d-flex" role="Buscar">
+              <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+              <button class="btn btn-outline-success" type="submit">Search</button>
+            </form>
+          </div>
+        </div>
+      </nav>
+
+        <section class="container hero__main">
+            <div class="hero__textos">
+                <h1 class="title">Sistema <span class="title__active">De gestion de contenido.</span></h1>
+                <p class="copy">Fecha de actualizacion: <span 
+                class="copy__active">Enero 2024</span></p>
+                <a href="frontend/login.html" class="cta">Registrate</a>
+
+            </div>
+            <img src="frontend/imagenes/6426965.png" alt="personas">
+        </section>
+
+    </header>
+
+    <main>
+      <div id="carouselExample" class="carousel slide">
+        <div class="carousel-inner">
+          <div class="carousel-item active">
+            <img src="frontend/imagenes/personas 4.jpg" class="d-block w-100" alt="...">
+          </div>
+          <div class="carousel-item">
+            <img src="frontend/imagenes/personas 5.jpg" class="d-block w-100" alt="...">
+          </div>
+          <div class="carousel-item">
+            <img src="frontend/imagenes/personas 7.jpg" class="d-block w-100" alt="...">
+          </div>
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#carouselExample" data-bs-slide="next">
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Next</span>
+        </button>
+      </div> 
+    
+
+
+
+
+      <section class="services">
+          <div class="container-fluid">
+            <h2 class="subtitle">NUESTRAS CAPACITACIONES <span class="point">.</span></h2>
+            <p class="copy__section">Nuestras capacitaciones online</p>
+          
+              <!-- Utiliza el sistema de cuadrícula de Bootstrap -->
+              <div class="row">
+                <div class="col-md-4">
+                  <div class="card h-100">
+                    <img src="frontend/imagenes/haccp 2.jpg" alt="card__img" class="card-img-top img-fluid">
+                    <div class="cards__text">
+                      <p class="card__list">Bienvenido</p>
+                      <h3 class="card__title">Haccp <span class="point">.</span></h3>
+                      <p class="card__copy">Análisis de Peligros y Puntos Críticos de Control. 
+                        Es un enfoque sistemático para la seguridad alimentaria que ayuda a identificar,
+                        evaluar y controlar los peligros relacionados con los alimentos. 
+                        El HACCP se utiliza ampliamente en la industria alimentaria para garantizar 
+                        la producción de productos alimentarios seguros y saludables.</p>
+                      <a href="#" class="card__button">Ingresa al material</a>
+                    </div>
+                  </div>
+                </div>
+                
+          
+                <div class="col-md-4">
+                  <div class="card h-100">
+                    <img src="frontend/imagenes/trazabilidad.jpg" alt="card__img" class="card-img-top img-fluid">
+                    <div class="cards__text">
+                      <p class="card__list">Bienvenido</p>
+                      <h3 class="card__title">trazabilidad <span class="point">.</span></h3>
+                      <p class="card__copy">La trazabilidad en la industria alimentaria se refiere a la capacidad de rastrear y seguir el movimiento de un alimento a través de todas las etapas de producción, procesamiento y distribución. Esto implica identificar y documentar la procedencia, el procesamiento, la distribución y la venta de productos alimentarios a lo largo de toda la cadena de suministro, desde el origen hasta el consumidor final.</p>
+                      <a href="#" class="card__button">Ingresa al material</a>
+                    </div>
+                  </div>
+                </div>
+                
+          
+                <div class="col-md-4">
+                  <div class="card h-100">
+                    <img src="frontend/imagenes/food.jpg" alt="card__img" class="card-img-top img-fluid">
+                    <div class="cards__text">
+                      <p class="card__list">Bienvenido</p>
+                      <h3 class="card__title">Food Defense <span class="point">.</span></h3>
+                      <p class="card__copy">Food defense se refiere a las medidas y prácticas implementadas para proteger los alimentos de actos deliberados de contaminación, sabotaje o adulteración con la intención de causar daño. A diferencia de la seguridad alimentaria tradicional, que se centra en amenazas naturales y accidentales, el enfoque de food defense se dirige específicamente a amenazas intencionales.</p>
+                      <a href="#" class="card__button">Ingresa al material</a>
+                    </div>
+                  </div>
+                </div>
+              </div>  
+            </div>
+          </section>
+        
+        
+        
+          <div class="container">
+            <div class="card mb-3" style="max-width: 2000px;">
+              <div class="row g-0">
+                <div class="col-md-3" style="margin-left: 20px;">
+                  <img src="frontend/imagenes/bpm.jpg" class="img-fluid rounded-start" alt="BPM - Buenas Prácticas de Manufactura">
+                </div>
+                <div class="col-md-8">
+                  <div class="card-body">
+                    <h5 class="card-title" style="font-size: 30px; color: white">¿Qué son las Buenas Prácticas de Manufactura?</h5>
+                    <p class="card-text" style="font-size: 24px; color: white">Las Buenas Prácticas de Manufactura (BPM) son pautas y procedimientos estandarizados que se aplican en la producción de bienes para garantizar la calidad, seguridad y consistencia en los procesos de manufactura. Estas prácticas son esenciales en industrias como la alimentaria.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+
+
+        <section class="contacto-formulario container">
+          <h1 class="logo-text">SGC</h1>
+          <h2 class="subtitulo">Contáctanos <span class="punto">.</span></h2>
+          <form action="mailto:tucorreo@ejemplo.com" method="post" enctype="text/plain">
+              <label for="nombre">Nombre:</label>
+              <input type="text" id="nombre" name="nombre" required>
+      
+              <label for="correo">Correo electrónico:</label>
+              <input type="email" id="correo" name="correo" required>
+      
+              <label for="mensaje">Pregunta:</label>
+              <textarea id="mensaje" name="mensaje" rows="4" required></textarea>
+      
+              <button type="submit">Enviar</button>
+          </form>
+      </section>
+      
+    </main>
+
+    <footer>
+        <div class="contact">
+          <div class="item__contact">
+            <i class='bx bx-mail-send contact__icon'></i>
+            <h3 class="contact__title">Seguridadalimentaria@olega.com.ar</h3>
+          </div>
+          <div class="item__contact"> 
+            <i class='bx bx-mail-send contact__icon'></i>
+            <h3 class="contact__title">belenazat@gmail.com</h3>
+          </div>
+          <div class="item__contact"> 
+            <i class='bx bx-mail-send contact__icon'></i>
+            <h3 class="contact__title">corralg@olega.com.ar</h3>
+          </div>
+          <div class="item__contact"> 
+            <i class='bx bx-mail-send contact__icon'></i>
+            <h3 class="contact__title">zazzarinih@olega.com.ar</h3>
+          </div>
+
+        </div>
+    </footer>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+
+
+</body>
+</html>

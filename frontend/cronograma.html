@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cronograma de Tareas</title>
+    <link rel="stylesheet" href="css/cronograma.css">
+    <!-- Vincula la hoja de estilos de Bootstrap -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+    
+
+<!-- Barra de navegación (navbar) -->
+<nav class="navbar navbar-expand-lg bg-body-tertiary">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="#">NOMBRE XXX</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+        <div class="navbar-nav">
+          <a class="nav-link active" aria-current="page" href="../index.html">Inicio</a>
+        </div>
+        <div class="navbar-nav">
+            <a class="nav-link active" aria-current="page" href="seguimientocap.html">Seguimiento de capacitaciones</a>
+        </div>
+
+
+      </div>
+    </div>
+  </nav>
+
+<div class="container mt-5">
+    <p id="fechahoy"></p>
+    <h2>Cronograma de Tareas</h2>
+
+    <form id="formularioTarea">
+        <div class="form-group">
+            <label for="tarea">Tarea:</label>
+            <input type="text" class="form-control" id="tarea" required>
+        </div>
+
+        <div class="form-group">
+            <label for="fechaVencimiento">Fecha de Vencimiento:</label>
+            <input type="date" class="form-control" id="fechaVencimiento" required>
+        </div>
+
+        <div class="form-group">
+            <label for="responsable">Responsable:</label>
+            <input type="text" class="form-control" id="responsable" required>
+        </div>
+
+        <div class="form-group">
+            <label for="estado">Estado:</label>
+            <select class="form-control" id="estado" required>
+                <option value="pendiente">Pendiente</option>
+                <option value="enProceso">En Proceso</option>
+                <option value="completa">Completa</option>
+            </select>
+        </div>
+
+        <button type="button" class="btn btn-primary" onclick="agregarTarea()">Agregar Tarea</button>
+    </form>
+    <div class="table-responsive">
+        <table class="table mt-3">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Tarea</th>
+                    <th>Fecha de Vencimiento</th>
+                    <th>Responsable</th>
+                    <th>Estado</th>
+                    <th>Acciones</th>
+                </tr>
+            </thead>
+            <tbody id="listaTareas">
+                <!-- Aquí se mostrarán las tareas agregadas -->
+            </tbody>
+        </table>
+           
+       
+    </div>
+    <tbody id="listaTareas">
+            <!-- Aquí se mostrarán las tareas agregadas -->
+    </tbody>
+    
+</div>
+
+
+<!-- Vincula los scripts de Bootstrap y jQuery (necesario para algunas funcionalidades de Bootstrap) -->
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+<!-- Vincula el archivo de script externo -->
+<script src="js/cronograma.js"></script>
+
+</body>
+</html>
