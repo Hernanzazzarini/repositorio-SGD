@@ -1,0 +1,22 @@
+
+
+.container {
+    margin-top: 50px;
+}
+
+.datos-lote {
+    display: none;
+}
+
+#datosLoteForm:target + .datos-lote {
+    display: block;
+}
+body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+.footer {
+    margin-top: auto;
+}
