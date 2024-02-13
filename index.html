@@ -3,65 +3,55 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>sistema de gestion de contenido</title>
+  <title>Sistema de Gestión de Contenido</title>
   <link rel="stylesheet" href="frontend/css/index.css">
-  <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+  <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"> <!-- Enlaza a Bootstrap -->
-  
- 
 </head>
 <body>
-  
-  
-    <header class="hero">
-      <nav class="navbar navbar-expand-lg bg-body-tertiary">
-        <div class="container-fluid">
-          <a class="navbar-brand" href="#">SGC</a>
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarScroll" aria-controls="navbarScroll" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-          </button>
-          <div class="collapse navbar-collapse" id="navbarScroll">
-            <ul class="navbar-nav me-auto my-2 my-lg-0 navbar-nav-scroll" style="--bs-scroll-height: 100px;">
-              <li class="nav-item">
-                <a class="nav-link active" aria-current="page" href="#">INICIO</a>
-              </li>
-              
-              <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                  MENU
-                </a>
-                <ul class="dropdown-menu">
-                  <li><a class="dropdown-item" href="frontend/cronograma.html">Cronograma de tareas</a></li>
-                  <li><a class="dropdown-item" href="frontend/seguimientocap.html">Seguimiento de capacitaciones</a></li>
-                  <li><hr class="dropdown-divider"></li>
-                  <li><a class="dropdown-item" href="frontend/cargatraza.html">Carga Trazabilidad produccion</a></li>
-                  <li><a class="dropdown-item" href="#">Carga Trazabilidad logistica</a></li>
-                  <li><a class="dropdown-item" href="#">Trazabilidad general</a></li>
-                </ul>
-              </li>
-              
-            </ul>
-            <form class="d-flex" role="Buscar">
-              <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-              <button class="btn btn-outline-success" type="submit">Search</button>
-            </form>
-          </div>
+  <header class="hero">
+    <nav class="navbar navbar-expand-lg bg-body-tertiary">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="#">SGC</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarScroll" aria-controls="navbarScroll" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarScroll">
+          <ul class="navbar-nav me-auto my-2 my-lg-0 navbar-nav-scroll" style="--bs-scroll-height: 100px;">
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="#">INICIO</a>
+            </li>
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">MENU</a>
+              <ul class="dropdown-menu">
+                <li><a class="dropdown-item" href="frontend/cronograma.html">Cronograma de tareas</a></li>
+                <li><a class="dropdown-item" href="frontend/seguimientocap.html">Seguimiento de capacitaciones</a></li>
+                <li><hr class="dropdown-divider"></li>
+                <li><a class="dropdown-item" href="frontend/cargatraza.html">Carga Trazabilidad producción</a></li>
+                <li><a class="dropdown-item" href="#">Carga Trazabilidad logística</a></li>
+                <li><a class="dropdown-item" href="#">Trazabilidad general</a></li>
+              </ul>
+            </li>
+          </ul>
+          <form class="d-flex" role="Buscar">
+            <input class="form-control me-2" type="search" placeholder="Buscar" aria-label="Search">
+            <button class="btn btn-outline-success" type="submit">Search</button>
+          </form>
         </div>
-      </nav>
+      </div>
+    </nav>
 
-        <section class="container hero__main">
-            <div class="hero__textos">
-                <h1 class="title">Sistema <span class="title__active">De gestion de contenido.</span></h1>
-                <p class="copy">Fecha de actualizacion: <span 
-                class="copy__active">Enero 2024</span></p>
-                <a href="frontend/login.html" class="cta">Registrate</a>
+    <section class="container hero__main">
+      <div class="hero__textos">
+        <h1 class="title">Sistema <span class="title__active">De Gestión de Contenido.</span></h1>
+        <p class="copy">Fecha de actualización: <span class="copy__active">Enero 2024</span></p>
+        <a href="frontend/login.html" class="cta">Regístrate</a>
+      </div>
+      <img src="frontend/imagenes/6426965.png" alt="personas">
+    </section>
+  </header>
 
-            </div>
-            <img src="frontend/imagenes/6426965.png" alt="personas">
-        </section>
-
-    </header>
+   
 
     <main>
       <div id="carouselExample" class="carousel slide">
@@ -183,31 +173,13 @@
     </main>
 
     <footer>
-        <div class="contact">
-          <div class="item__contact">
-            <i class='bx bx-mail-send contact__icon'></i>
-            <h3 class="contact__title">Seguridadalimentaria@olega.com.ar</h3>
-          </div>
-          <div class="item__contact"> 
-            <i class='bx bx-mail-send contact__icon'></i>
-            <h3 class="contact__title">belenazat@gmail.com</h3>
-          </div>
-          <div class="item__contact"> 
-            <i class='bx bx-mail-send contact__icon'></i>
-            <h3 class="contact__title">corralg@olega.com.ar</h3>
-          </div>
-          <div class="item__contact"> 
-            <i class='bx bx-mail-send contact__icon'></i>
-            <h3 class="contact__title">zazzarinih@olega.com.ar</h3>
-          </div>
-
-        </div>
-    </footer>
+      <p>&copy; H.Z@zz Desing. Todos los derechos reservados.</p>
+  
+      <footer>
+  
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
 
-
-</body>
-</html>
+  </body>
+  </html>
