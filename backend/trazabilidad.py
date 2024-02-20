@@ -216,7 +216,7 @@ def crear_cargas(conexion):
         else:
             print("El nombre del lote es obligatorio. Ingrese un nombre de lote válido.")
 
-    fecha_carga = input("Ingrese la fecha de carga (YYYY-MM-DD): ")
+    fecha_carga = input("Ingrese la fecha de carga (AAAA-MM-DD): ")
     cantidad = int(input("Ingrese la cantidad: "))
     kilos_transporte = float(input("Ingrese los kilos de transporte: "))
     destino = input("Ingrese el destino: ")
@@ -233,10 +233,6 @@ def crear_cargas(conexion):
             # Obtener el ID de la última fila insertada
             id_carga = cursor.lastrowid
 
-            # Actualizar el stock en la tabla produccion
-            query_update_stock = "UPDATE produccion SET stock = stock - %s WHERE lote = %s AND stock >= %s"
-            cursor.execute(query_update_stock, (cantidad, lote, cantidad))
-
             # Hacer commit para confirmar los cambios en la base de datos
             conexion.commit()
 
@@ -247,6 +243,8 @@ def crear_cargas(conexion):
     except Exception as e:
         print(f"Error al crear carga: {e}")
         return None
+
+
 
 #--------------------------------------------------------  
 # Función para listar la producción y cargas por número de lote
