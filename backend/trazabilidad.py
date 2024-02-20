@@ -225,24 +225,29 @@ def crear_cargas(conexion):
     try:
         with conexion.cursor() as cursor:
             # Consulta SQL para insertar datos de carga
-            query = "INSERT INTO cargas (lote, fecha_carga, cantidad, kilos_transporte, destino, id_transporte) VALUES (%s, %s, %s, %s, %s, %s)"
+            query_insert_carga = "INSERT INTO cargas (lote, fecha_carga, cantidad, kilos_transporte, destino, id_transporte) VALUES (%s, %s, %s, %s, %s, %s)"
             
             # Ejecutar la consulta SQL con los datos proporcionados
-            cursor.execute(query, (lote, fecha_carga, cantidad, kilos_transporte, destino, id_transporte))
+            cursor.execute(query_insert_carga, (lote, fecha_carga, cantidad, kilos_transporte, destino, id_transporte))
             
+            # Obtener el ID de la última fila insertada
+            id_carga = cursor.lastrowid
+
+            # Actualizar el stock en la tabla produccion
+            query_update_stock = "UPDATE produccion SET stock = stock - %s WHERE lote = %s AND stock >= %s"
+            cursor.execute(query_update_stock, (cantidad, lote, cantidad))
+
             # Hacer commit para confirmar los cambios en la base de datos
             conexion.commit()
 
-            # Obtener el ID de la última fila insertada
-            last_row_id = cursor.lastrowid
-            
             print("\nCarga realizada con éxito.")
             
             # Devolver el ID de la última fila insertada
-            return last_row_id
+            return id_carga
     except Exception as e:
         print(f"Error al crear carga: {e}")
         return None
+
 #--------------------------------------------------------  
 # Función para listar la producción y cargas por número de lote
 def listar_datos_productivos_y_cargas(conexion):
@@ -327,10 +332,7 @@ def listar_datos_productivos_y_cargas(conexion):
     finally:
         if cursor:
             cursor.close()
-
-
-
-
+#-------------------------------------------------------------
 
 def trazabilidad(conexion):
     while True:
@@ -347,8 +349,10 @@ def trazabilidad(conexion):
         print("8. Listar Transportes")
         print("9. Listar Datos Productivos") 
         print("10. Listar Cargas")
+        #print("11.Lotes en stock")
+        #print("12. Kilos en Stock Por Calibre")
         print("-------------------------")
-        print("11. Salir")
+        print("13. Salir")
 
         opcion = input("Selecciona una opción: ")
         if opcion == "1":
@@ -384,6 +388,9 @@ def trazabilidad(conexion):
             listar_produccion(conexion)
         elif opcion == "10"   :
             listar_datos_productivos_y_cargas(conexion)
+
+       
+        
         elif opcion == "11":
             break
         else:
