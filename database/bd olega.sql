@@ -1,1 +1,1 @@
-SELECT * FROM dbolega.produccion;
+SELECT * FROM dbolega.stock;

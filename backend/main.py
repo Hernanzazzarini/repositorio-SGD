@@ -3,6 +3,7 @@ from capacitaciones import capacitaciones
 from personal import personal
 from tareas import *
 from trazabilidad import *
+from trazabilidadlog import *
 
 
 
@@ -49,8 +50,9 @@ def mostrar_menu_capacitaciones(conexion):
         print("1. Gestionar Capacitaciones")
         print("2. Personal")
         print("3. cronograma de tareas")
-        print("4. sistema de trazabilidad")
-        print("5. Salir")
+        print("4. sistema de trazabilidad produccion")
+        print("5. Sistema de trazabilidad expedicion ")
+        print("6. Salir")
 
         opcion = input("\n⮞ Ingrese una opción: ")
 
@@ -62,9 +64,10 @@ def mostrar_menu_capacitaciones(conexion):
             tareas(conexion)
         elif opcion == "4" :
             trazabilidad(conexion)
-               
+        elif opcion == "5" :
+            trazabilidadlog(conexion)       
 
-        elif opcion == "5":
+        elif opcion == "8":
             print("Saliendo de la app.")
             break
         else:
