@@ -162,7 +162,113 @@ def crear_stock_fisico(conexion):
         print(f"Error al crear la carga de stock físico: {e}")
         return None
 
+def mostrar_traza(conexion, numero_lote):
 
+    numero_lote = input("Ingrese el número de lote a mostrar: ")
+
+    # Verificar si se proporcionó un número de lote
+    if not numero_lote:
+        print("¡Error: Debes ingresar un número de lote!")
+        return
+
+    try:
+        with conexion.cursor() as cursor:
+            # Verificar si el lote ha sido producido
+            query_verificar_produccion = "SELECT COUNT(*) FROM produccion WHERE lote = %s"
+            cursor.execute(query_verificar_produccion, (numero_lote,))
+            produccion_existente = cursor.fetchone()[0]
+
+            # Verificar si el lote ha sido cargado
+            query_verificar_carga = "SELECT COUNT(*) FROM cargas WHERE lote = %s"
+            cursor.execute(query_verificar_carga, (numero_lote,))
+            carga_existente = cursor.fetchone()[0]
+
+            if produccion_existente == 0 and carga_existente == 0:
+                print(f"El lote {numero_lote} no ha sido producido ni cargado.")
+                return
+
+            # Buscar en datos productivos
+            query_productivos = """
+                SELECT p.id_registro, c.nombre_calibre, s.tipo_segregacion, p.lote, 
+                       p.fecha_inicio, p.hora_inicio, p.fecha_final, p.hora_final, 
+                       p.envases, p.kilos, p.deposito, p.rack, p.stock, p.reclamo
+                FROM produccion p
+                INNER JOIN calibres c ON p.id_calibre = c.id_calibre
+                INNER JOIN segregacion s ON p.id_segregacion = s.id_segregacion
+                WHERE p.lote = %s
+            """
+            cursor.execute(query_productivos, (numero_lote,))
+            datos_productivos = cursor.fetchall()
+
+            # Buscar en datos de carga
+            query_cargas = """
+                SELECT c.id_carga, c.lote, c.fecha_carga, c.cantidad, c.kilos_transporte, 
+                       c.destino, c.id_transporte, t.nombre_transporte, t.nombre_chofer
+                FROM cargas c
+                INNER JOIN transportes t ON c.id_transporte = t.id_transporte
+                WHERE c.lote = %s
+            """
+            cursor.execute(query_cargas, (numero_lote,))
+            datos_cargas = cursor.fetchall()
+
+            if not datos_productivos and not datos_cargas:
+                print(f"No se encontraron registros para el número de lote {numero_lote}.")
+            else:
+                if datos_productivos:
+                    headers_productivos = ["ID", "Calibre", "Segregación", "Lote", "Fecha Inicio", "Hora Inicio", "Fecha Final", "Hora Final", "Envases", "Kilos", "Depósito", "Rack", "Stock", "Reclamo"]
+                    print("\nDatos Productivos:")
+                    print(tabulate(datos_productivos, headers=headers_productivos, tablefmt="pretty"))
+
+                if datos_cargas:
+                    headers_cargas = ["ID", "Lote", "Fecha de Carga", "Cantidad", "Kilos de Transporte", "Destino", "ID del Transporte", "Nombre del Transporte", "Nombre del Chofer"]
+                    print("\nDatos de Carga:")
+                    print(tabulate(datos_cargas, headers=headers_cargas, tablefmt="pretty"))
+
+    except mysql.connector.Error as e:
+        print(f"Error al buscar por número de lote: {e}")
+
+def mostrar_stock_fisico(conexion):
+    try:
+        with conexion.cursor() as cursor:
+            # Consulta para listar el stock con id_calibre, nombre_calibre, numero_lote, cantidad, kilos y opcionalmente filtrados por calibre
+            nombre_calibre = input("Ingrese el nombre del calibre para filtrar (deje en blanco para mostrar todo): ").strip()
+            if nombre_calibre:
+                query_listar_stock = """
+                    SELECT c.id_calibre, c.nombre_calibre, s.numero_lote, SUM(s.cantidad) as total_cantidad, 
+                           SUM(s.cantidad * s.kilos) as total_kilos
+                    FROM stock s
+                    JOIN calibres c ON s.id_calibre = c.id_calibre
+                    WHERE c.nombre_calibre = %s
+                    GROUP BY c.id_calibre, c.nombre_calibre, s.numero_lote
+                """
+                cursor.execute(query_listar_stock, (nombre_calibre,))
+            else:
+                query_listar_stock = """
+                    SELECT c.id_calibre, c.nombre_calibre, s.numero_lote, SUM(s.cantidad) as total_cantidad, 
+                           SUM(s.cantidad * s.kilos) as total_kilos
+                    FROM stock s
+                    JOIN calibres c ON s.id_calibre = c.id_calibre
+                    GROUP BY c.id_calibre, c.nombre_calibre, s.numero_lote
+                """
+                cursor.execute(query_listar_stock)
+
+            stock_por_calibre = cursor.fetchall()
+
+            if not stock_por_calibre:
+                if nombre_calibre:
+                    print(f"No hay registros en la tabla de stock para el calibre {nombre_calibre}.")
+                else:
+                    print("No hay registros en la tabla de stock.")
+            else:
+                headers_stock_por_calibre = ["Idcalibre", "Nombre Calibre", "Numero Lote", "Total Cantidad", "Total Kilos"]
+                print(tabulate(stock_por_calibre, headers=headers_stock_por_calibre, tablefmt="pretty"))
+
+                # Calcular y mostrar el total general de kilos cargados
+                total_general_kilos = sum(row[4] for row in stock_por_calibre)
+                print(f"\nStock General de Kilos en deposito: {total_general_kilos:.2f}")
+
+    except mysql.connector.Error as e:
+        print(f"Error al listar el stock: {e}")
 
 def trazabilidadlog(conexion):
     while True:
@@ -174,8 +280,8 @@ def trazabilidadlog(conexion):
         print("*** Menú de Listados ***")
         print("4. Listar transportes")
         print("5. Listar cargas")
-        print("6. Listar trazabilidad") 
-        print("7. Listar stock") 
+        print("6. Listar trazabilidad productiva/logistica") 
+        print("7. Mostrar stock fisico") 
         print("-------------------------")
         print("8. Salir")
 
@@ -196,6 +302,14 @@ def trazabilidadlog(conexion):
             listar_transportes(conexion) 
         elif opcion == "5":
             listar_cargas(conexion)
+        elif opcion == "6":
+            numero_lote = input("Ingrese el número de lote a mostrar: ")
+            mostrar_traza(conexion, numero_lote) 
+        elif opcion == "7":
+            mostrar_stock_fisico(conexion)     
+
+
+
         elif opcion == "8":
             break  
         
