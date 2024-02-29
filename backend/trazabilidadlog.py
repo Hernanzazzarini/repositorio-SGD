@@ -164,7 +164,7 @@ def crear_stock_fisico(conexion):
 
 def mostrar_traza(conexion, numero_lote):
 
-    numero_lote = input("Ingrese el número de lote a mostrar: ")
+    
 
     # Verificar si se proporcionó un número de lote
     if not numero_lote:
